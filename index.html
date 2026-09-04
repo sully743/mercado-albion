@@ -127,4 +127,95 @@
             "imagenes/Captura de pantalla 2026-09-04 140042.png",
             "imagenes/Captura de pantalla 2026-09-04 140052.png",
             "imagenes/Captura de pantalla 2026-09-04 140058.png",
-            "imagenes/Captura de pantalla 2026-09-04 140105
+            "imagenes/Captura de pantalla 2026-09-04 140105.png",
+            "imagenes/Captura de pantalla 2026-09-04 140111.png",
+            "imagenes/Captura de pantalla 2026-09-04 140118.png",
+            "imagenes/Captura de pantalla 2026-09-04 140126.png",
+            "imagenes/Captura de pantalla 2026-09-04 140132.png",
+            "imagenes/Captura de pantalla 2026-09-04 140137.png",
+            "imagenes/Captura de pantalla 2026-09-04 140143.png",
+            "imagenes/Captura de pantalla 2026-09-04 140149.png",
+            "imagenes/Captura de pantalla 2026-09-04 140156.png",
+            "imagenes/Captura de pantalla 2026-09-04 140444.png",
+            "imagenes/Captura de pantalla 2026-09-04 140451.png",
+            "imagenes/Captura de pantalla 2026-09-04 140458.png",
+            "imagenes/Captura de pantalla 2026-09-04 140507.png",
+            "imagenes/Captura de pantalla 2026-09-04 140515.png",
+            "imagenes/Captura de pantalla 2026-09-04 140524.png",
+            "imagenes/Captura de pantalla 2026-09-04 140534.png",
+            "imagenes/Captura de pantalla 2026-09-04 140543.png",
+            "imagenes/Captura de pantalla 2026-09-04 140551.png",
+            "imagenes/Captura de pantalla 2026-09-04 140558.png",
+            "imagenes/Captura de pantalla 2026-09-04 140610.png",
+            "imagenes/Captura de pantalla 2026-09-04 140616.png",
+            "imagenes/Captura de pantalla 2026-09-04 140624.png",
+            "imagenes/Captura de pantalla 2026-09-04 140634.png",
+            "imagenes/Captura de pantalla 2026-09-04 140641.png",
+            "imagenes/Captura de pantalla 2026-09-04 140648.png",
+            "imagenes/Captura de pantalla 2026-09-04 140659.png",
+            "imagenes/Captura de pantalla 2026-09-04 140706.png",
+            "imagenes/Captura de pantalla 2026-09-04 140715.png",
+            "imagenes/Captura de pantalla 2026-09-04 140721.png",
+            "imagenes/Captura de pantalla 2026-09-04 140728.png",
+            "imagenes/Captura de pantalla 2026-09-04 140735.png",
+            "imagenes/Captura de pantalla 2026-09-04 140758.png",
+            "imagenes/Captura de pantalla 2026-09-04 140804.png",
+            "imagenes/Captura de pantalla 2026-09-04 140811.png",
+            "imagenes/Captura de pantalla 2026-09-04 140818.png",
+            "imagenes/Captura de pantalla 2026-09-04 140825.png",
+            "imagenes/Captura de pantalla 2026-09-04 140837.png",
+            "imagenes/Captura de pantalla 2026-09-04 140844.png",
+            "imagenes/Captura de pantalla 2026-09-04 140851.png",
+            "imagenes/Captura de pantalla 2026-09-04 140907.png",
+            "imagenes/Captura de pantalla 2026-09-04 140921.png",
+            "imagenes/Captura de pantalla 2026-09-04 140928.png",
+            "imagenes/Captura de pantalla 2026-09-04 140934.png",
+            "imagenes/Captura de pantalla 2026-09-04 140945.png",
+            "imagenes/Captura de pantalla 2026-09-04 140954.png",
+            "imagenes/Captura de pantalla 2026-09-04 141001.png",
+            "imagenes/Captura de pantalla 2026-09-04 141007.png",
+            "imagenes/Captura de pantalla 2026-09-04 141014.png",
+            "imagenes/Captura de pantalla 2026-09-04 141022.png",
+            "imagenes/Captura de pantalla 2026-09-04 141030.png",
+            "imagenes/Captura de pantalla 2026-09-04 141045.png",
+            "imagenes/Captura de pantalla 2026-09-04 141051.png",
+            "imagenes/Captura de pantalla 2026-09-04 141058.png",
+            "imagenes/Captura de pantalla 2026-09-04 141105.png",
+            "imagenes/Captura de pantalla 2026-09-04 141111.png",
+            "imagenes/Captura de pantalla 2026-09-04 141119.png",
+            "imagenes/Captura de pantalla 2026-09-04 141130.png",
+            "imagenes/Captura de pantalla 2026-09-04 141136.png",
+            "imagenes/Captura de pantalla 2026-09-04 141143.png",
+            "imagenes/Captura de pantalla 2026-09-04 141149.png",
+            "imagenes/Captura de pantalla 2026-09-04 141156.png",
+            "imagenes/Captura de pantalla 2026-09-04 141202.png"
+        ];
+
+        const contenedor = document.getElementById('galeria');
+        
+        imagenes.forEach(ruta => {
+            const card = document.createElement('div');
+            card.className = 'item-card';
+            card.innerHTML = `<img src="${ruta}" alt="Objeto Albion">`;
+            
+            // Al hacer clic en la tarjeta, abre la vista centrada en grande
+            card.onclick = () => abrirModal(ruta);
+            
+            contenedor.appendChild(card);
+        });
+
+        function abrirModal(ruta) {
+            const modal = document.getElementById('modalZoom');
+            const imgAmpliada = document.getElementById('imagenAmpliada');
+            imgAmpliada.src = ruta;
+            modal.style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modalZoom');
+            modal.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
