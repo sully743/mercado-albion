@@ -11,7 +11,7 @@
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 15px;
             max-width: 1200px;
             margin: 0 auto;
@@ -29,12 +29,105 @@
     <div class="grid-container" id="galeria"></div>
 
     <script>
-        // Escribe aquí los nombres EXACTOS de tus imágenes
-        const imagenes = [
+        // Aquí están los nombres EXACTOS de tus primeras 3 imágenes
+      const imagenes = [
+            "imagenes/Captura de pantalla 2026-09-04 134456.png",
+            "imagenes/Captura de pantalla 2026-09-04 135458.png",
+            "imagenes/Captura de pantalla 2026-09-04 135507.png",
+            "imagenes/Captura de pantalla 2026-09-04 135515.png",
+            "imagenes/Captura de pantalla 2026-09-04 135525.png",
+            "imagenes/Captura de pantalla 2026-09-04 135533.png",
+            "imagenes/Captura de pantalla 2026-09-04 135556.png",
+            "imagenes/Captura de pantalla 2026-09-04 135619.png",
+            "imagenes/Captura de pantalla 2026-09-04 135629.png",
+            "imagenes/Captura de pantalla 2026-09-04 135635.png",
+            "imagenes/Captura de pantalla 2026-09-04 135647.png",
+            "imagenes/Captura de pantalla 2026-09-04 135656.png",
+            "imagenes/Captura de pantalla 2026-09-04 135715.png",
+            "imagenes/Captura de pantalla 2026-09-04 135729.png",
+            "imagenes/Captura de pantalla 2026-09-04 135741.png",
+            "imagenes/Captura de pantalla 2026-09-04 135747.png",
+            "imagenes/Captura de pantalla 2026-09-04 135754.png",
+            "imagenes/Captura de pantalla 2026-09-04 135817.png",
+            "imagenes/Captura de pantalla 2026-09-04 135826.png",
+            "imagenes/Captura de pantalla 2026-09-04 135838.png",
+            "imagenes/Captura de pantalla 2026-09-04 135851.png",
+            "imagenes/Captura de pantalla 2026-09-04 135859.png",
+            "imagenes/Captura de pantalla 2026-09-04 135906.png",
+            "imagenes/Captura de pantalla 2026-09-04 135915.png",
+            "imagenes/Captura de pantalla 2026-09-04 135925.png",
+            "imagenes/Captura de pantalla 2026-09-04 135932.png",
+            "imagenes/Captura de pantalla 2026-09-04 135939.png",
+            "imagenes/Captura de pantalla 2026-09-04 140010.png",
+            "imagenes/Captura de pantalla 2026-09-04 140017.png",
+            "imagenes/Captura de pantalla 2026-09-04 140024.png",
+            "imagenes/Captura de pantalla 2026-09-04 140030.png",
+            "imagenes/Captura de pantalla 2026-09-04 140036.png",
+            "imagenes/Captura de pantalla 2026-09-04 140042.png",
+            "imagenes/Captura de pantalla 2026-09-04 140052.png",
+            "imagenes/Captura de pantalla 2026-09-04 140058.png",
+            "imagenes/Captura de pantalla 2026-09-04 140105.png",
+            "imagenes/Captura de pantalla 2026-09-04 140111.png",
+            "imagenes/Captura de pantalla 2026-09-04 140118.png",
+            "imagenes/Captura de pantalla 2026-09-04 140126.png",
+            "imagenes/Captura de pantalla 2026-09-04 140132.png",
+            "imagenes/Captura de pantalla 2026-09-04 140137.png",
+            "imagenes/Captura de pantalla 2026-09-04 140143.png",
+            "imagenes/Captura de pantalla 2026-09-04 140149.png",
+            "imagenes/Captura de pantalla 2026-09-04 140156.png",
+            "imagenes/Captura de pantalla 2026-09-04 140444.png",
+            "imagenes/Captura de pantalla 2026-09-04 140451.png",
+            "imagenes/Captura de pantalla 2026-09-04 140458.png",
+            "imagenes/Captura de pantalla 2026-09-04 140507.png",
+            "imagenes/Captura de pantalla 2026-09-04 140515.png",
+            "imagenes/Captura de pantalla 2026-09-04 140524.png",
+            "imagenes/Captura de pantalla 2026-09-04 140534.png",
+            "imagenes/Captura de pantalla 2026-09-04 140543.png",
+            "imagenes/Captura de pantalla 2026-09-04 140551.png",
+            "imagenes/Captura de pantalla 2026-09-04 140558.png",
+            "imagenes/Captura de pantalla 2026-09-04 140610.png",
+            "imagenes/Captura de pantalla 2026-09-04 140616.png",
+            "imagenes/Captura de pantalla 2026-09-04 140624.png",
+            "imagenes/Captura de pantalla 2026-09-04 140634.png",
+            "imagenes/Captura de pantalla 2026-09-04 140641.png",
+            "imagenes/Captura de pantalla 2026-09-04 140648.png",
+            "imagenes/Captura de pantalla 2026-09-04 140659.png",
+            "imagenes/Captura de pantalla 2026-09-04 140706.png",
+            "imagenes/Captura de pantalla 2026-09-04 140715.png",
+            "imagenes/Captura de pantalla 2026-09-04 140721.png",
+            "imagenes/Captura de pantalla 2026-09-04 140728.png",
+            "imagenes/Captura de pantalla 2026-09-04 140735.png",
+            "imagenes/Captura de pantalla 2026-09-04 140758.png",
+            "imagenes/Captura de pantalla 2026-09-04 140804.png",
+            "imagenes/Captura de pantalla 2026-09-04 140811.png",
+            "imagenes/Captura de pantalla 2026-09-04 140818.png",
+            "imagenes/Captura de pantalla 2026-09-04 140825.png",
+            "imagenes/Captura de pantalla 2026-09-04 140837.png",
+            "imagenes/Captura de pantalla 2026-09-04 140844.png",
+            "imagenes/Captura de pantalla 2026-09-04 140851.png",
+            "imagenes/Captura de pantalla 2026-09-04 140907.png",
+            "imagenes/Captura de pantalla 2026-09-04 140921.png",
+            "imagenes/Captura de pantalla 2026-09-04 140928.png",
+            "imagenes/Captura de pantalla 2026-09-04 140934.png",
+            "imagenes/Captura de pantalla 2026-09-04 140945.png",
+            "imagenes/Captura de pantalla 2026-09-04 140954.png",
+            "imagenes/Captura de pantalla 2026-09-04 141001.png",
+            "imagenes/Captura de pantalla 2026-09-04 141007.png",
+            "imagenes/Captura de pantalla 2026-09-04 141014.png",
+            "imagenes/Captura de pantalla 2026-09-04 141022.png",
+            "imagenes/Captura de pantalla 2026-09-04 141030.png",
+            "imagenes/Captura de pantalla 2026-09-04 141045.png",
             "imagenes/Captura de pantalla 2026-09-04 141051.png",
             "imagenes/Captura de pantalla 2026-09-04 141058.png",
-            "imagenes/Captura de pantalla 2026-09-04 141105.png"
-            // Puedes agregar más abajo, siempre entre comillas y separadas por una coma
+            "imagenes/Captura de pantalla 2026-09-04 141105.png",
+            "imagenes/Captura de pantalla 2026-09-04 141111.png",
+            "imagenes/Captura de pantalla 2026-09-04 141119.png",
+            "imagenes/Captura de pantalla 2026-09-04 141130.png",
+            "imagenes/Captura de pantalla 2026-09-04 141136.png",
+            "imagenes/Captura de pantalla 2026-09-04 141143.png",
+            "imagenes/Captura de pantalla 2026-09-04 141149.png",
+            "imagenes/Captura de pantalla 2026-09-04 141156.png",
+            "imagenes/Captura de pantalla 2026-09-04 141202.png"
         ];
 
         const contenedor = document.getElementById('galeria');
