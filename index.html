@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería Desplegable</title>
+    <title>Galería Desplegable de Albion</title>
     <style>
         body {
             background-color: #1e1e1e;
             color: #f4f4f4;
             padding: 20px;
             font-family: Arial, sans-serif;
+            margin: 0;
         }
         h2 {
             text-align: center;
             color: #e2c073;
         }
-        /* Contenedor principal que permite el desplazamiento horizontal */
+        /* Contenedor horizontal */
         .scroll-container {
             display: flex;
             overflow-x: auto;
@@ -23,44 +24,87 @@
             padding: 20px 10px;
             scroll-behavior: smooth;
         }
-        /* Estética de la barra de desplazamiento */
         .scroll-container::-webkit-scrollbar {
-            height: 10px;
+            height: 12px;
         }
         .scroll-container::-webkit-scrollbar-track {
             background: #2c2c2c;
-            border-radius: 5px;
+            border-radius: 6px;
         }
         .scroll-container::-webkit-scrollbar-thumb {
             background: #555;
-            border-radius: 5px;
+            border-radius: 6px;
         }
         .scroll-container::-webkit-scrollbar-thumb:hover {
             background: #e2c073;
         }
-        /* Estilo de cada tarjeta de imagen */
+        /* Tarjetas individuales */
         .item-card {
-            flex: 0 0 300px; /* Ancho fijo para cada tarjeta */
+            flex: 0 0 320px;
             background-color: #2c2c2c;
             border: 1px solid #444;
             border-radius: 8px;
             padding: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+            cursor: pointer;
+            transition: transform 0.2s;
         }
-        img {
+        .item-card:hover {
+            transform: scale(1.03);
+            border-color: #e2c073;
+        }
+        .item-card img {
             width: 100%;
             border-radius: 6px;
             object-fit: cover;
             display: block;
         }
+
+        /* Estilo para la ventana flotante (Modal / Lightbox) */
+        .modal {
+            display: none; /* Oculto por defecto */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #f4f4f4;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .modal-close:hover {
+            color: #e2c073;
+        }
     </style>
 </head>
 <body>
 
-    <h2>Galería Desplazable de Armas</h2>
+    <h2>Galería Desplazable de Objetos</h2>
 
     <!-- Contenedor horizontal -->
     <div class="scroll-container" id="galeria"></div>
+
+    <!-- Ventana flotante para la imagen en grande -->
+    <div class="modal" id="modalZoom" onclick="cerrarModal()">
+        <span class="modal-close">&times;</span>
+        <img id="imagenAmpliada" src="" alt="Vista ampliada">
+    </div>
 
     <script>
         const imagenes = [
@@ -160,18 +204,33 @@
             "imagenes/Captura de pantalla 2026-09-04 141143.png",
             "imagenes/Captura de pantalla 2026-09-04 141149.png",
             "imagenes/Captura de pantalla 2026-09-04 141156.png",
-            "imagenes/Captura/ de pantalla 2026-09-04 141202.png"
+            "imagenes/Captura de pantalla 2026-09-04 141202.png"
         ];
 
         const contenedor = document.getElementById('galeria');
         
         imagenes.forEach(ruta => {
-            contenedor.innerHTML += `
-                <div class="item-card">
-                    <img src="${ruta}" alt="Objeto Albion">
-                </div>
-            `;
+            const card = document.createElement('div');
+            card.className = 'item-card';
+            card.innerHTML = `<img src="${ruta}" alt="Objeto Albion">`;
+            
+            // Al hacer clic en la tarjeta, abre la vista centrada
+            card.onclick = () => abrirModal(ruta);
+            
+            contenedor.appendChild(card);
         });
+
+        function abrirModal(ruta) {
+            const modal = document.getElementById('modalZoom');
+            const imgAmpliada = document.getElementById('imagenAmpliada');
+            imgAmpliada.src = ruta;
+            modal.style.display = 'flex';
+        }
+
+        function cerrarModal() {
+            const modal = document.getElementById('modalZoom');
+            modal.style.display = 'none';
+        }
     </script>
 
 </body>
