@@ -1,0 +1,11 @@
+1. Entrar a tu carpeta
+cd "C:\Users\noemu\Desktop\Pagina Albion"
+Función: Le indica a la terminal que se mueva exactamente a la carpeta donde tienes guardado tu proyecto en tu computadora.
+
+2. Actualizar tu enlace
+git remote set-url origin [https://github.com/sully743/mercado-albion.git](https://github.com/sully743/mercado-albion.git)
+Función: Le avisa a tu sistema que cambiaste tu nombre de usuario de GitHub (a sully743) para que repare la conexión y pueda volver a comunicarse con la nube.
+
+3. Descargar los cambios
+git pull origin main
+Función: Descarga el código que modificaste directamente allá en la página web de GitHub y actualiza tu archivo local para que tu computadora y la nube estén perfectamente sincronizadas.
