@@ -16,7 +16,20 @@
             text-align: center;
             color: #e2c073;
         }
-        /* Contenedor en cuadrícula que fluye hacia abajo */
+        /* Barra de música flotante arriba */
+        .music-player {
+            text-align: center;
+            background-color: #2c2c2c;
+            padding: 10px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            border: 1px solid #444;
+        }
+        .music-player audio {
+            width: 100%;
+        }
+        /* Contenedor en cuadrícula */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -46,9 +59,9 @@
             display: block;
         }
 
-        /* Estilo para la ventana flotante (Modal / Lightbox) */
+        /* Ventana flotante (Modal / Lightbox) */
         .modal {
-            display: none; /* Oculto por defecto */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -83,8 +96,19 @@
 
     <h2>SullivanReborn Market</h2>
 
+    <!-- Reproductor de música de fondo -->
+    <div class="music-player">
+        <p style="margin: 0 0 5px 0; font-size: 14px; color: #e2c073;">🎵 Mii Channel Theme</p>
+        <audio controls loop>
+            <source src="audio/wii theme.mp3" type="audio/mp3">
+            Tu navegador no soporta audio.
+        </audio>
+    </div>
+
+    <!-- Contenedor en cuadrícula -->
     <div class="grid-container" id="galeria"></div>
 
+    <!-- Ventana flotante para la imagen en grande -->
     <div class="modal" id="modalZoom" onclick="cerrarModal()">
         <span class="modal-close">&times;</span>
         <img id="imagenAmpliada" src="" alt="Vista ampliada">
@@ -197,10 +221,7 @@
             const card = document.createElement('div');
             card.className = 'item-card';
             card.innerHTML = `<img src="${ruta}" alt="Objeto Albion">`;
-            
-            // Al hacer clic en la tarjeta, abre la vista centrada en grande
             card.onclick = () => abrirModal(ruta);
-            
             contenedor.appendChild(card);
         });
 
